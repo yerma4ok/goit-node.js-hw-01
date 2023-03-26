@@ -1,12 +1,12 @@
 const {
-   contactsPath,
-   listContacts,
-   getContactById,
-   removeContact,
-   addContact,
- } = require("./contacts");
+  contactsPath,
+  listContacts,
+  getContactById,
+  removeContact,
+  addContact,
+} = require("./contacts");
 
- const { Command } = require("commander");
+const { Command } = require("commander");
 const program = new Command();
 program
   .option("-a, --action <type>", "choose action")
@@ -19,23 +19,23 @@ program.parse(process.argv);
 
 const argv = program.opts();
 
-// TODO: рефакторить
 function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
     case "list":
-      // ...
+      listContacts();
+
       break;
 
     case "get":
-      // ... id
+      getContactById(id);
       break;
 
     case "add":
-      // ... name email phone
+      addContact({ name, email, phone });
       break;
 
     case "remove":
-      // ... id
+      removeContact(id);
       break;
 
     default:
