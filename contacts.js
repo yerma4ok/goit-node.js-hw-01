@@ -3,20 +3,50 @@ const fs = require("fs").promises;
 
 const contactsPath = path.resolve("db", "contacts.json");
 
-function listContacts() {
+async function listContacts() {
+   try {
+     const res = await readContacts();
  
+     console.table(res);
+   } catch (error) {
+     console.log(error);
+   }
  }
  
- function getContactById(contactId) {
- 
+ async function getContactById(contactId) {
+   try {
+     const res = await readContacts();
+     const filtredRes = res.filter((element) => element.id === contactId);
+     console.log(filtredRes);
+   } catch (error) {
+     console.log(error);
+   }
  }
  
- function removeContact(contactId) {
-
+ async function removeContact(contactId) {
+   try {
+     const res = await readContacts();
+     const filtredRes = res.filter((element) => {
+       return element.id !== String(contactId);
+     });
+     await fs.writeFile(contactsPath, JSON.stringify(filtredRes, null, 2));
+     console.log("del", filtredRes);
+   } catch (error) {
+     console.log(error);
+   }
  }
  
- function addContact(name, email, phone) {
-
+ async function addContact({ name, email, phone }) {
+   try {
+     const res = await readContacts();
+     const id = nanoid();
+     const newContact = { id, name, email, phone };
+ 
+     res.push(newContact);
+ 
+     await fs.writeFile(contactsPath, JSON.stringify(res, null, 2));
+     console.log(res);
+   } catch (error) {}
  }
 
  module.exports = {
