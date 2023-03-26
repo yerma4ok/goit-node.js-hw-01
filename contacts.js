@@ -3,6 +3,16 @@ const fs = require("fs").promises;
 
 const contactsPath = path.resolve("db", "contacts.json");
 
+async function readContacts() {
+   try {
+     const res = await fs.readFile(contactsPath, { encoding: "utf8" });
+     const resParsed = JSON.parse(res);
+     return resParsed;
+   } catch (error) {
+     console.log(error);
+   }
+}
+
 async function listContacts() {
    try {
      const res = await readContacts();

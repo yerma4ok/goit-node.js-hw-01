@@ -3,8 +3,8 @@
     "nodemon": "^2.0.22"
   },
   "scripts": {
-    "start": "node index",
-    "start:dev": "nodemon index"
+    "start": "node ./index.js",
+    "start:dev": "nodemon ./index.js"
   },
   "dependencies": {
     "commander": "^10.0.0",
