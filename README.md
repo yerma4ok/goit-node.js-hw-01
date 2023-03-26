@@ -2,16 +2,16 @@
 
 # Отримуємо і виводимо весь список контактів у вигляді таблиці (console.table)
 
-https://ibb.co/xhWT7vS
+https://ibb.co/ZJLM96W
 
 # Отримуємо контакт по id
 
-https://ibb.co/ynsdjtM
+https://ibb.co/rfwWVz2
 
 # Додаємо контакт
 
-https://ibb.co/BnRBh05
+https://ibb.co/Hny27TG
 
 # Видаляємо контакт
 
-https://ibb.co/cLsFJpn
+https://ibb.co/XZKpPBM
